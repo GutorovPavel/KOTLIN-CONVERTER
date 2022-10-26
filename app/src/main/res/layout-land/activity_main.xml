@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".MainActivity"
     android:background="#CFDDDF">
 
@@ -12,19 +12,17 @@
         android:id="@+id/place_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginVertical="40dp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="390dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tableLayout"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="30dp">
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:id="@+id/l2_parent"
@@ -32,15 +30,15 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_margin="60dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/cTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
                 android:layout_gravity="center"
-                android:layout_marginVertical="20dp"
                 android:textSize="20dp" />
 
 
@@ -93,14 +91,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="40dp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="80dp"
                     android:layout_height="30dp"
-                    android:layout_margin="10dp"
+                    android:layout_margin="12dp"
                     android:background="#E4E9EA"
                     android:onClick="copyBtn"
                     android:text="copy"
@@ -109,7 +107,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="80dp"
                     android:layout_height="30dp"
-                    android:layout_margin="10dp"
+                    android:layout_margin="12dp"
                     android:background="#E4E9EA"
                     android:onClick="swapBtn"
                     android:text="swap"
@@ -118,24 +116,37 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="80dp"
                     android:layout_height="30dp"
-                    android:layout_margin="10dp"
+                    android:layout_margin="12dp"
                     android:background="#E4E9EA"
                     android:onClick="pasteBtn"
                     android:text="paste"
                     android:textSize="12dp" />
-
             </LinearLayout>
 
         </LinearLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:itemTextColor="@color/bottom_nav_item_selector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:itemIconTint="@color/bottom_nav_item_selector"
+            app:menu="@menu/bottom_nav" />
+
 
     </androidx.cardview.widget.CardView>
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:stretchColumns="*"
-        app:layout_constraintBottom_toTopOf="@+id/bottomAppBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <TableRow>
@@ -249,17 +260,5 @@
         </TableRow>
 
     </TableLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:itemTextColor="@color/bottom_nav_item_selector"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:itemIconTint="@color/bottom_nav_item_selector"
-        app:menu="@menu/bottom_nav"
-        tools:layout_editor_absoluteX="0dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

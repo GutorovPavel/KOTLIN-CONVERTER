@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Button_Style" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:background">#524D7781</item>
+        <item name="android:layout_height">72dp</item>
+    </style>
+    <style name="Button_Style_land" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:background">#1E4D7781</item>
+        <item name="android:layout_height">100dp</item>
+    </style>
+</resources>

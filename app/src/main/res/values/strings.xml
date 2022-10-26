@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">converter_lab</string>
+    <string name="app_name">CDW Converter</string>
 
     <string-array name="currencies">
 
@@ -9,30 +9,23 @@
 
     </string-array>
 
-    <string-array name="currencies2">
-
-        <item>EUR</item>
-        <item>USD</item>
-        <item>BYN</item>
-
-    </string-array>
-
     <string-array name="distance">
 
+        <item>m</item>
+        <item>dm</item>
         <item>cm</item>
-        <item>km</item>
-        <item>inch</item>
 
     </string-array>
 
     <string-array name="weight">
 
+        <item>kg</item>
         <item>g</item>
-        <item>pounds</item>
-        <item>centner</item>
+        <item>t</item>
 
     </string-array>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
 
