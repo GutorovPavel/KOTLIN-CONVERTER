@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.text.Editable
 import android.text.InputType
 import android.text.SpannableStringBuilder
@@ -67,6 +68,10 @@ class MainActivity : AppCompatActivity() {
                 else -> {}
             }
             true
+        }
+
+        if (savedInstanceState != null) {
+            inputArea.setText(savedInstanceState.getString("input"))
         }
 
         forbidActions(inputArea)
@@ -252,5 +257,23 @@ class MainActivity : AppCompatActivity() {
                 convertTo = spinner2.selectedItem.toString()
             }
         })
+    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        super.onSaveInstanceState(outState, outPersistentState)
+        outState.putString("input", inputArea.text.toString())
+    }
+
+
+    /////////////////////////////// LIFECYCLE ////////////////////////////
+
+    override fun onResume() {
+        super.onResume()
+        inputArea.inputType = InputType.TYPE_NULL
+    }
+
+    override fun onStop() {
+        super.onStop()
+        inputArea.inputType = InputType.TYPE_CLASS_TEXT
     }
 }
