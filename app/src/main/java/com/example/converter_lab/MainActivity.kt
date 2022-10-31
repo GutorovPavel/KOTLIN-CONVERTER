@@ -70,10 +70,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        if (savedInstanceState != null) {
-            inputArea.setText(savedInstanceState.getString("input"))
-        }
-
         forbidActions(inputArea)
         textChange()
     }
@@ -130,7 +126,8 @@ class MainActivity : AppCompatActivity() {
                 inputArea.setText(String.format("%s%s%s", leftStr, str, rightStr))
                 cursorPos = 0
             }
-            if ("." in oldStr && str == ".") {
+            if (("." in oldStr || oldStr == "") && str == ".") {
+
             } else {
                 inputArea.setText(String.format("%s%s%s", leftStr, str, rightStr))
                 inputArea.setSelection(cursorPos + 1)
@@ -259,13 +256,18 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    /////////////////////////////// LIFECYCLE ////////////////////////////
+
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
         outState.putString("input", inputArea.text.toString())
+
     }
 
-
-    /////////////////////////////// LIFECYCLE ////////////////////////////
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        inputArea.setText(savedInstanceState.getString("input"))
+    }
 
     override fun onResume() {
         super.onResume()
